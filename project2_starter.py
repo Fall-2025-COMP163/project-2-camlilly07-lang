@@ -274,14 +274,15 @@ class Rogue(Player):
         #import random module to generate random numbers
 
         self.target = target
+        super().attack(target)
 
         import random
-        random.randint(1, 10)
+        
         crit_chance = random.randint(1, 10)
         #if random is less than or equal to 3, it's a critical hit
         if crit_chance <= 3:
             #critical hit does double damage of self.strength
-            crit_damage = self.strength * 2
+            crit_damage = self.strength
             target.take_damage(crit_damage)
             print(f"Critical Hit! {self.name} deals an extra {crit_damage} damage to {target.name}.")
         """
